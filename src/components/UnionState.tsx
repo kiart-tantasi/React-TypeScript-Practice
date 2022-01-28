@@ -2,14 +2,20 @@ import React, { useState } from "react";
 
 type ArrayState = number[];
 
-const NullState = () => {
-  const [nullState, setNullState] = useState<ArrayState | null | string>();
+const UnionState = () => {
+  const [unionState, setUnionState] = useState<ArrayState | null | string | undefined >(null);
   const handleAddList = () => {
-    setNullState([1, 2, 3, 4, 5]);
+    setUnionState([1, 2, 3, 4, 5]);
   };
   const handleChangeState = () => {
-    setNullState("string");
+    setUnionState("string");
   };
+  const handleNullState = () => {
+    setUnionState(null);
+  }
+  const handleUndefinedState = () => {
+    setUnionState(undefined);
+  }
 
   // const [nullArray, setNullArray] = React.useState<ArrayState | null>(null);
   // const handleSetArray = () => {
@@ -22,11 +28,13 @@ const NullState = () => {
 
   return (
     <>
-      <p>{JSON.stringify(nullState)}</p>
+      <div className="state-box"><p>{JSON.stringify(unionState)}</p></div>
       <button onClick={handleAddList}>change to array state</button>
       <button onClick={handleChangeState}>change to string state</button>
+      <button onClick={handleNullState}>change to null state</button>
+      <button onClick={handleUndefinedState}>change to undefined state</button>
     </>
   );
 };
 
-export default NullState;
+export default UnionState;

@@ -57,15 +57,16 @@ const User = () => {
         <br />
         <button type="submit">change name and nickname(optional)</button>
       </form>
-
+      <hr className="short-hr" />
       <h4>age: {userState.age}</h4>
       <form onSubmit={handleChangeAge}>
         <input ref={newAgeRef} type="number" placeholder="new age" />
-        <br />
         <button type="submit">change age</button>
       </form>
+      <hr className="short-hr" />
       <h4>sex: {userState.sex}</h4>
       <button onClick={() => toggleSex()}>change sex</button>
+      <hr className="short-hr" />
       <h4>working: {userState.working ? "Yes" : "No"}</h4>
       <button onClick={() => toggleWorking()}>change working status</button>
     </>

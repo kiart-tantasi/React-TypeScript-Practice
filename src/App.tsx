@@ -1,41 +1,37 @@
-import { useEffect, useState } from "react";
-import Form from "./components/Form";
-import Layout from "./components/Layout";
+import InputForm from "./components/InputForm";
+import LayoutWithChildren from "./components/LayoutWithChildren";
 import LayoutOptionalChildren from "./components/LayoutOptionalChildren";
 import Message from "./components/Message";
 import MessageTwo from "./components/MessageTwo";
-import NullState from "./components/NullState";
+import UnionState from "./components/UnionState";
 import User from "./components/User";
+import UseState from "./components/UseState";
 
 export default function App() {
-  type ItemStateModel = { [key: string]: any };
-
-  const [state, setState] = useState<number>();
-  const [itemState, setItemState] = useState<ItemStateModel>();
-
-  useEffect(() => {
-    setState(2);
-    setItemState({ name: "John", age: 13, string: "string", 123: 123 });
-  }, []);
-
   return (
-    <div className="App">
-      <p>{state}</p>
-      <p>{JSON.stringify(itemState)}</p>
+    <div>
+      <p className="heading">state of number & state of object</p>
+      <UseState />
       <hr />
-      <Form />
+      <p className="heading">Form of Inputs</p>
+      <InputForm />
       <hr />
-      <Layout>
-        <h4>This is React.ReactNode (props.children).</h4>
-      </Layout>
-      <LayoutOptionalChildren required="this is required"></LayoutOptionalChildren>
+      <p className="heading">Layout with required children and optional children</p>
+      <LayoutWithChildren>
+        <h4>This is required props.children.</h4>
+      </LayoutWithChildren>
+      <LayoutOptionalChildren></LayoutOptionalChildren>
       <hr />
-      <Message message={"a messaged passed."} />
-      <MessageTwo message={"a messaged passed (React.FC)."} />
+      <p className="heading">Two ways of define prop type</p>
+      <Message message={"1: define after param"} />
+      <MessageTwo message={"2: define in React.FC<> before param"} />
       <hr />
-      <NullState />
+      <p className="heading">Union State</p>
+      <UnionState />
       <hr />
+      <p className="heading">Context API</p>
       <User />
+      <hr/>
     </div>
   );
 }

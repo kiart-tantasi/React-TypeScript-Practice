@@ -1,5 +1,26 @@
-.App {
-    font-family: sans-serif;
-    text-align: center;
-  }
-  
+* {
+  font-family: sans-serif;
+  text-align: center;
+}
+
+.heading {
+  color: darkblue;
+}
+
+.message-box {
+  width: 800px;
+  background-color: rgba(224, 224, 224, 0.973);
+  margin: auto;
+}
+
+.state-box {
+  width: 200px;
+  background-color: rgba(224, 224, 224, 0.973);
+  margin: auto;
+}
+
+.short-hr {
+  width: 250px;
+  color: #000;
+  margin: 10px auto;
+}
